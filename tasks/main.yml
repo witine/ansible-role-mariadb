@@ -1,0 +1,19 @@
+---
+- name: "Install prerequisites"
+  ansible.builtin.apt:
+    name: ca-certificates
+    state: latest
+- name: "Setup MariaDB key"
+  ansible.builtin.apt_key:
+    url: https://mariadb.org/mariadb_release_signing_key.asc
+    keyring: /etc/apt/trusted.gpg.d/mariadb.gpg
+    state: present
+- name: "Setup MariaDB repository"
+  ansible.builtin.apt_repository:
+    repo: 'deb https://archive.mariadb.org/mariadb-{{ mariadb_version }}/repo/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} main'
+    state: present
+    filename: 'mariadb-{{ mariadb_version }}'
+- name: "Install MariaDB server"
+  ansible.builtin.apt:
+    name: mariadb-server
+    state: latest

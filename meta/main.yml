@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  role_name: mariadb
+  namespace: witine
+  author: Andrew Ying
+  company: Witine
+  license: BSD
+  description: Ansible role for running MariaDB server
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - jammy
+  galaxy_tags:
+    - database
+    - mariadb
