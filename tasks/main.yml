@@ -16,4 +16,4 @@
 - name: "Install MariaDB server"
   ansible.builtin.apt:
     name: mariadb-server
-    state: latest
+    state: present
